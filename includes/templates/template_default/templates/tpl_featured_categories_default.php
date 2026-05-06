@@ -18,7 +18,7 @@ $list_box_contents = [];
 $row = 0;
 $col = 0;
 
-if ($listing->EOF) {
+if (count($fc_listing) === 0) {
     $list_box_contents[0][] = [
         'params' => 'class="centerBoxContentsFeatured centeredContent w-100"',
         'text' => defined('TEXT_NO_FEATURED_CATEGORIES') ? TEXT_NO_FEATURED_CATEGORIES : 'No products to show.',
@@ -26,7 +26,7 @@ if ($listing->EOF) {
 } else {
     $col_width = floor(100 / SHOW_PRODUCT_INFO_COLUMNS_FEATURED_PRODUCTS);
 
-    foreach ($listing as $record) {
+    foreach ($fc_listing as $record) {
         $lc_text = '<a href="' . zen_href_link(FILENAME_DEFAULT, 'cPath=' . zen_get_generated_category_path_rev($record['categories_id'])) . '">'
                  . zen_image(DIR_WS_IMAGES . $record['categories_image'], $record['categories_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
         $lc_text .= '<div class="categoryName">' . $record['categories_name'] . '</div>';
