@@ -18,7 +18,7 @@ $list_box_contents = [];
 $row = 0;
 $col = 0;
 
-if (count($fc_listing) === 0) {
+if (count($listing) === 0) {
     $list_box_contents[0][] = [
         'params' => 'class="centerBoxContentsFeatured centeredContent w-100"',
         'text' => defined('TEXT_NO_FEATURED_CATEGORIES') ? TEXT_NO_FEATURED_CATEGORIES : 'No products to show.',
