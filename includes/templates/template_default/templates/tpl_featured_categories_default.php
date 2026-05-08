@@ -6,7 +6,6 @@
 * @copyright Portions Copyright 2003 osCommerce
 * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
 * @version $Id: lat9 2025 May 13 Modified in v2.2.0 $
-* based on tpl_brands_default
 */
 ?>
 <div class="centerColumn" id="featuredCategoryDefault">
@@ -26,7 +25,7 @@ if (count($listing) === 0) {
 } else {
     $col_width = floor(100 / SHOW_PRODUCT_INFO_COLUMNS_FEATURED_PRODUCTS);
 
-    foreach ($fc_listing as $record) {
+    foreach ($listing as $record) {
         $lc_text = '<a href="' . zen_href_link(FILENAME_DEFAULT, 'cPath=' . zen_get_generated_category_path_rev($record['categories_id'])) . '">'
                  . zen_image(DIR_WS_IMAGES . $record['categories_image'], $record['categories_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
         $lc_text .= '<div class="categoryName">' . $record['categories_name'] . '</div>';
