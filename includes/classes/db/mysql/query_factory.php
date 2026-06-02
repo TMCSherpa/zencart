@@ -898,7 +898,7 @@ class queryFactory extends base
      */
     protected function logQuery(string $sqlQuery): void
     {
-        if (zen_config('STORE_DB_TRANSACTIONS', 'false') === 'false' || zen_config('STORE_DB_TRANSACTIONS') === false) {
+        if (!defined('STORE_DB_TRANSACTIONS') || STORE_DB_TRANSACTIONS === 'false' || STORE_DB_TRANSACTIONS === false) {
             return;
         }
         global $PHP_SELF, $box_id, $current_page_base;
@@ -915,7 +915,7 @@ class queryFactory extends base
         if ($f) {
             $backtrace = '';
 
-            if (zen_config('STORE_DB_TRANSACTIONS') === 'backtrace') {
+            if (STORE_DB_TRANSACTIONS === 'backtrace') {
                 ob_start();
                 debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
                 $backtrace = ob_get_clean();
