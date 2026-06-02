@@ -131,7 +131,7 @@ $zco_notifier->notify('NOTIFY_PAGE_BODY_BEGIN', $current_page);
 <div id="contentMainWrapper">
 
 <?php
-if (int)zen_config('COLUMN_LEFT_STATUS') === 0 || (zen_config('CUSTOMERS_APPROVAL') === '1' and !zen_is_logged_in()) || (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or !zen_is_logged_in()))) {
+if ((int)zen_config('COLUMN_LEFT_STATUS') === 0 || (zen_config('CUSTOMERS_APPROVAL') === '1' and !zen_is_logged_in()) || (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or !zen_is_logged_in()))) {
   // global disable of column_left
   $flag_disable_left = true;
 }
@@ -195,8 +195,8 @@ if (!$flag_disable_left) {
 
 
 <?php
-//if (int)zen_config('COLUMN_RIGHT_STATUS') === 0 || (zen_config('CUSTOMERS_APPROVAL') === '1' and $_SESSION['customer_id'] == '') || (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF') === 'true' && $_SESSION['customers_authorization'] != 0)) {
-if (int)zen_config('COLUMN_RIGHT_STATUS') === 0 || (zen_config('CUSTOMERS_APPROVAL') === '1' and !zen_is_logged_in()) || (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or !zen_is_logged_in()))) {
+//if ((int)zen_config('COLUMN_RIGHT_STATUS') === 0 || (zen_config('CUSTOMERS_APPROVAL') === '1' and $_SESSION['customer_id'] == '') || (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF') === 'true' && $_SESSION['customers_authorization'] != 0)) {
+if ((int)zen_config('COLUMN_RIGHT_STATUS') === 0 || (zen_config('CUSTOMERS_APPROVAL') === '1' and !zen_is_logged_in()) || (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or !zen_is_logged_in()))) {
   // global disable of column_right
   $flag_disable_right = true;
 }
@@ -223,7 +223,7 @@ if (!isset($flag_disable_right) || !$flag_disable_right) {
   * prepares and displays footer output
   *
   */
-  if (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_FOOTER_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
+  if ((int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_FOOTER_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
     $flag_disable_footer = true;
   }
   require($template->get_template_dir('tpl_footer.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_footer.php');
