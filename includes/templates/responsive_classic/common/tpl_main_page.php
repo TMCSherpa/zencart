@@ -123,7 +123,7 @@ $zco_notifier->notify('NOTIFY_PAGE_BODY_BEGIN', $current_page);
   * prepares and displays header output
   *
   */
-  if (int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION') === 1 && zen_config('CUSTOMERS_AUTHORIZATION_HEADER_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or !zen_is_logged_in())) {
+  if ((int)zen_config('CUSTOMERS_APPROVAL_AUTHORIZATION')=== 1 && zen_config('CUSTOMERS_AUTHORIZATION_HEADER_OFF') === 'true' and ($_SESSION['customers_authorization'] != 0 or !zen_is_logged_in())) {
     $flag_disable_header = true;
   }
   require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
